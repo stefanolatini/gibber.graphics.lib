@@ -24,6 +24,8 @@ const Graphics = {
   __storepos:null,
   __storedir:null,
   __postprocessing:[],
+  __ruleIdx: null,
+  __showCodeBackground: false,
   camera : {
     pos: { x:0, y:0, z:5 },
     dir: { x:0, y:0, z:1 },
