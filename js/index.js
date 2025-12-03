@@ -755,7 +755,24 @@ const Graphics = {
 
     }
   }
+  addCodeBackground() {
+    if (Gibber.Environment) {
+      const sheet = window.document.styleSheets[window.document.styleSheets.length - 1];
+      Graphics.__ruleIdx = sheet.insertRule('.CodeMirror pre { background-color: rgba( 0,0,0,.75 ) !important; }', sheet.cssRules.length);
+      Graphics.__showCodeBackground = true;
+    }
+  },
 
+  clearCodeBackground() {
+    const sheet = window.document.styleSheets[window.document.styleSheets.length - 1];
+
+    if (sheet.cssRules.length > 0 && Graphics.__ruleIdx !== null) {
+      sheet.deleteRule(Graphics.__ruleIdx);
+      Graphics.__ruleIdx = null;
+    }
+
+    Graphics.__showCodeBackground = false;
+  }
 
 }
 
